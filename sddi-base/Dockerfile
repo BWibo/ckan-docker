@@ -87,6 +87,15 @@ RUN set -ex && \
   pip wheel --wheel-dir=/wheels \
     git+${CKANEXT_REPEATING_GITHUB_URL}.git@${CKANEXT_REPEATING_VERSION}#egg=ckanext-repeating
 
+# ckanext-userautoaddgroup ####################################################
+ARG CKANEXT_USERAUTOADDGROUP_VERSION="master"
+ENV CKANEXT_USERAUTOADDGROUP_VERSION=${CKANEXT_USERAUTOADDGROUP_VERSION}
+ENV CKANEXT_USERAUTOADDGROUP_GITHUB_URL="https://github.com/tum-gis/ckanext-userautoaddgroup-sddi"
+
+RUN set -ex && \
+  pip wheel --wheel-dir=/wheels \
+    git+${CKANEXT_USERAUTOADDGROUP_GITHUB_URL}.git@${CKANEXT_USERAUTOADDGROUP_VERSION}#egg=ckanext-userautoaddgroup
+
 # ckanext-spatial #############################################################
 FROM ghcr.io/keitaroinc/ckan:${CKAN_VERSION_BUILD_SPATIAL} as extbuild-spatial
 
@@ -122,7 +131,7 @@ RUN set -ex && \
 FROM ghcr.io/keitaroinc/ckan:${CKAN_VERSION_RUNTIME_STAGE} as runtime
 
 ENV CKAN__PLUGINS "image_view text_view recline_view datastore datapusher \
-  hierarchy_display hierarchy_form display_group relation \
+  hierarchy_display hierarchy_form display_group relation userautoaddgroup \
   spatial_metadata spatial_query datesearch repeating composite scheming_datasets \
   envvars"
 
@@ -181,6 +190,10 @@ RUN set -ex && \
 # ckanext-repeating ###########################################################
 RUN set -ex && \
   pip install --no-index --find-links=${APP_DIR}/ext_wheels ckanext-repeating
+
+# ckanext-repeating ###########################################################
+RUN set -ex && \
+  pip install --no-index --find-links=${APP_DIR}/ext_wheels ckanext-userautoaddgroup
 
 # Copy init scripts and additional files
 COPY --chown=ckan:ckan initScripts/ ${APP_DIR}/docker-afterinit.d

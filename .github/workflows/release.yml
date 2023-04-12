@@ -59,11 +59,13 @@ jobs:
         id: meta-debug
         uses: docker/metadata-action@v4
         with:
+          flavor:
+            latest=true,suffix=-debug,onlatest=true
           images: |
             ${{ env.REGISTRY }}/bwibo/ckan-${{ matrix.context }}
           tags: |
-            type=semver,pattern={{version}},suffix=-debug,onlatest=true,priority=600
-            type=semver,pattern={{major}}.{{minor}},suffix=-debug,onlatest=true,priority=600
+            type=semver,pattern={{version}},priority=600
+            type=semver,pattern={{major}}.{{minor}},priority=600
           labels: |
             maintainer=Chair of Geoinformatics, Technical University of Munich (TUM)
             org.opencontainers.image.vendor=Chair of Geoinformatics, Technical University of Munich (TUM)

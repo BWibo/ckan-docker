@@ -36,7 +36,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            ${{ env.REGISTRY }}/tum-gis/ckan-${{ matrix.context }}
+            ${{ env.REGISTRY }}/bwibo/ckan-${{ matrix.context }}
           tags: |
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
@@ -45,7 +45,7 @@ jobs:
             org.opencontainers.image.vendor=Chair of Geoinformatics, Technical University of Munich (TUM)
             org.opencontainers.image.title=ckan-sddi-docker
 
-      - name: Build and publish ${{ env.REGISTRY }}/tum-gis/ckan-${{ matrix.context }}
+      - name: Build and publish ${{ env.REGISTRY }}/bwibo/ckan-${{ matrix.context }}
         uses: docker/build-push-action@v4
         with:
           context: ${{ matrix.context }}

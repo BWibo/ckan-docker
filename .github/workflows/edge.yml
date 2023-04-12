@@ -2,7 +2,7 @@ name: Build/push edge image
 
 on:
   push:
-    branches: [main,test]
+    branches: [main]
 
 env:
   REGISTRY: ghcr.io

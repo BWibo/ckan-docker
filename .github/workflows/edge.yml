@@ -36,7 +36,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            ${{ env.REGISTRY }}/tum-gis/ckan-${{ matrix.context }}
+            ${{ env.REGISTRY }}/bwibo/ckan-${{ matrix.context }}
           tags: |
             type=edge,branch=main
           labels: |
@@ -44,7 +44,7 @@ jobs:
             org.opencontainers.image.vendor=Chair of Geoinformatics, Technical University of Munich (TUM)
             org.opencontainers.image.title=ckan-sddi-docker
 
-      - name: Build and publish ${{ env.REGISTRY }}/tum-gis/ckan-${{ matrix.context }}
+      - name: Build and publish ${{ env.REGISTRY }}/bwibo/ckan-${{ matrix.context }}
         uses: docker/build-push-action@v4
         with:
           context: ${{ matrix.context }}
@@ -59,7 +59,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            ${{ env.REGISTRY }}/tum-gis/ckan-${{ matrix.context }}
+            ${{ env.REGISTRY }}/bwibo/ckan-${{ matrix.context }}
           tags: |
             type=edge,branch=main,suffix=-debug
           labels: |
@@ -67,7 +67,7 @@ jobs:
             org.opencontainers.image.vendor=Chair of Geoinformatics, Technical University of Munich (TUM)
             org.opencontainers.image.title=ckan-sddi-docker
 
-      - name: Build and publish ${{ env.REGISTRY }}/tum-gis/ckan-${{ matrix.context }}
+      - name: Build and publish ${{ env.REGISTRY }}/bwibo/ckan-${{ matrix.context }}
         uses: docker/build-push-action@v4
         with:
           context: ${{ matrix.context }}

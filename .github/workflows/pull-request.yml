@@ -21,7 +21,7 @@ jobs:
         with:
           context: sddi-base
           push: false
-          tags: ghcr.io/tum-gis/ckan-sddi-base:pr-${{github.event.number}}-${{ github.run_id }}-${{ github.run_attempt }}
+          tags: ghcr.io/bwibo/ckan-sddi-base:pr-${{github.event.number}}-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Build image sddi-base debug
         uses: docker/build-push-action@v4
@@ -29,9 +29,9 @@ jobs:
           context: sddi-base
           file: sddi-base/Dockerfile.debug
           push: false
-          tags: ghcr.io/tum-gis/ckan-sddi-base:pr-${{github.event.number}}-${{ github.run_id }}-${{ github.run_attempt }}-debug
+          tags: ghcr.io/bwibo/ckan-sddi-base:pr-${{github.event.number}}-${{ github.run_id }}-${{ github.run_attempt }}-debug
           build-args: |
-            BASEIMAGE_REPOSITORY=ghcr.io/tum-gis/ckan-sddi-base
+            BASEIMAGE_REPOSITORY=ghcr.io/bwibo/ckan-sddi-base
             BASEIMAGE_VERSION=pr-${{github.event.number}}-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Build image sddi
@@ -39,9 +39,9 @@ jobs:
         with:
           context: sddi
           push: false
-          tags: ghcr.io/tum-gis/ckan-sddi:pr-${{github.event.number}}-${{ github.run_id }}-${{ github.run_attempt }}
+          tags: ghcr.io/bwibo/ckan-sddi:pr-${{github.event.number}}-${{ github.run_id }}-${{ github.run_attempt }}
           build-args: |
-            BASEIMAGE_REPOSITORY=ghcr.io/tum-gis/ckan-sddi-base
+            BASEIMAGE_REPOSITORY=ghcr.io/bwibo/ckan-sddi-base
             BASEIMAGE_VERSION=pr-${{github.event.number}}-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Build image sddi debug
@@ -50,9 +50,9 @@ jobs:
           context: sddi
           file: sddi/Dockerfile.debug
           push: false
-          tags: ghcr.io/tum-gis/ckan-sddi:pr-${{github.event.number}}-${{ github.run_id }}-${{ github.run_attempt }}-debug
+          tags: ghcr.io/bwibo/ckan-sddi:pr-${{github.event.number}}-${{ github.run_id }}-${{ github.run_attempt }}-debug
           build-args: |
-            BASEIMAGE_REPOSITORY=ghcr.io/tum-gis/ckan-sddi
+            BASEIMAGE_REPOSITORY=ghcr.io/bwibo/ckan-sddi
             BASEIMAGE_VERSION=pr-${{github.event.number}}-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Build image sddi-social
@@ -60,9 +60,9 @@ jobs:
         with:
           context: sddi-social
           push: false
-          tags: ghcr.io/tum-gis/ckan-sddi-social:pr-${{github.event.number}}-${{ github.run_id }}-${{ github.run_attempt }}
+          tags: ghcr.io/bwibo/ckan-sddi-social:pr-${{github.event.number}}-${{ github.run_id }}-${{ github.run_attempt }}
           build-args: |
-            BASEIMAGE_REPOSITORY=ghcr.io/tum-gis/ckan-sddi
+            BASEIMAGE_REPOSITORY=ghcr.io/bwibo/ckan-sddi
             BASEIMAGE_VERSION=pr-${{github.event.number}}-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Build image sddi-social debug
@@ -71,7 +71,7 @@ jobs:
           context: sddi-social
           file: sddi-social/Dockerfile.debug
           push: false
-          tags: ghcr.io/tum-gis/ckan-sddi-social:pr-${{github.event.number}}-${{ github.run_id }}-${{ github.run_attempt }}-debug
+          tags: ghcr.io/bwibo/ckan-sddi-social:pr-${{github.event.number}}-${{ github.run_id }}-${{ github.run_attempt }}-debug
           build-args: |
-            BASEIMAGE_REPOSITORY=ghcr.io/tum-gis/ckan-sddi-social
+            BASEIMAGE_REPOSITORY=ghcr.io/bwibo/ckan-sddi-social
             BASEIMAGE_VERSION=pr-${{github.event.number}}-${{ github.run_id }}-${{ github.run_attempt }}

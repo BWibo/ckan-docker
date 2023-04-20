@@ -31,7 +31,7 @@ RUN pip wheel --wheel-dir=/wheels git+https://github.com/ckan/ckanext-spatial.gi
 ### MAIN ###
 ############
 ARG CKAN_VERSION=2.9.7
-FROM ghcr.io/tum-gis/ckan-sddi-base:${BASEIMAGE_VERSION} as runtime
+FROM ghcr.io/bwibo/ckan-sddi-base:${BASEIMAGE_VERSION} as runtime
 
 # List all extensions here
 ENV CKAN__PLUGINS envvars image_view text_view recline_view datastore datapusher spatial_metadata spatial_query
